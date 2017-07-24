@@ -1,0 +1,16 @@
+{
+  "name": "city-data",
+  "version": "1.0.5",
+  "description": "中国省份城市区数据",
+  "main": "back_end_data.js",
+  "scripts": {
+    "build-cvux": "node scripts/format-cvux",
+    "build-pc": "node scripts/format-pc"
+  },
+  "author": "Selvin11 <528370630@qq.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  }
+}
