@@ -1,6 +1,6 @@
 {
   "name": "city-data",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "中国省份城市区数据",
   "main": "back_end_data.js",
   "scripts": {
