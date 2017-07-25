@@ -18,10 +18,13 @@ function build () {
     // 省份
     if (k == '86') {
       for (var j in list[k]) {
-        rs.push({
-          name: list[k][j],
-          value: j
-        })
+        // 业务需求除去台湾
+        if (j != '710000') {
+          rs.push({
+            name: list[k][j],
+            value: j
+          })
+        }
       }
     } else {
       // 市级／区级
@@ -47,8 +50,8 @@ function build () {
   cityCodeArr.forEach(item => {
     if (Object.keys(list).indexOf(item) === -1) {
       rs.push({
-        name: item + "--",
-        value: "--",
+        name: "--",
+        value: item + "--",
         parent: item
       })
     }

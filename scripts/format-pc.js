@@ -18,27 +18,32 @@ function build () {
     // 省份
     if (k == '86') {
       for (var j in list[k]) {
-        var item = {
-          code: j,
-          name: list[k][j],
-          parentId: '0'
+        // 业务需求除去台湾
+        if (j != '710000') {
+          province.push({
+            code: j,
+            name: list[k][j],
+            parentId: '0'
+          })
         }
-        province.push(item)
       }
     } else {
       // 保存省级的code
       let provinceCodeArr = Object.keys(list['86'])
       for (var l in list[k]) {
-        var item = {
-          code: l,
-          name: list[k][l],
-          parentId: k
-        }
         // 市级 ，如果一级键名为‘86’中的键名，则为市级
         if (provinceCodeArr.indexOf(k) !== -1) {
-          city.push(item)
+            city.push({
+            code: l,
+            name: list[k][l],
+            parentId: k
+          })
         } else {
-          area.push(item)
+          area.push({
+            code: l,
+            name: list[k][l],
+            parentId: k
+          })
         }
       }
     }

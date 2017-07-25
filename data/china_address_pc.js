@@ -155,11 +155,6 @@ export const province = [
     "parentId": "0"
   },
   {
-    "code": "710000",
-    "name": "台湾省",
-    "parentId": "0"
-  },
-  {
     "code": "810000",
     "name": "香港特别行政区",
     "parentId": "0"
