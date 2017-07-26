@@ -5,16 +5,26 @@
 
 ## 使用说明
 
-1. 安装npm包：`npm install city-data`
+1. 安装npm包：
+
+  ```bash
+  npm install city-data
+  ```
 
 2. 引入使用：可参考安装包`lib/index.js`，自定义名称，按需引入
+  ```javascript
+  // cvux格式文件引入
+  import { 自定义名称 as cvux } from 'city-data'
+  // pc格式文件引入
+  import { province, city, area } from 'city-data'
+  ```
 
-  * `cvux`格式文件引入：`import { 自定义名称 as cvux } from 'city-data'`
-  * `pc`格式文件引入：`import { province, city, area } from 'city-data'`
 
-3. 源数据为`back_end_data.js`，我司后端使用的源数据
+## 数据说明
 
-4. 生成前端数据格式的指令：
+1. 源数据为`back_end_data.js`，我司后端使用的源数据
+
+2. 生成前端数据格式的指令：
   * `npm run build-cvux`：生成前端`cvux`中使用的数据格式，`./data/china_address_cvux.json`
 
     ```javascript
@@ -28,8 +38,6 @@
     ```
 
   * `npm run build-pc`：生成前端`pc`中使用的数据格式，`./data/china_address_pc.js`
-
-    加入模块机制，方便后续项目直接引入
 
     ```javascript
       module.exports = {
