@@ -2,7 +2,7 @@
   "name": "city-data",
   "version": "1.0.7",
   "description": "中国省份城市区数据",
-  "main": "back_end_data.js",
+  "main": "lib/index.js",
   "scripts": {
     "build-cvux": "node scripts/format-cvux",
     "build-pc": "node scripts/format-pc"

@@ -14,22 +14,21 @@ function build () {
   let province = []
   let city = []
   let area = []
+  // 保存list元数据中所有的键名（包含省市区）
+  let listCodeArr = Object.keys(list)
+  // 保存省级的code
+  let provinceCodeArr = Object.keys(list['86'])
   for (var k in list) {
-    // 省份
+    // 省份 86下面包含所有的省份信息
     if (k == '86') {
       for (var j in list[k]) {
-        // 业务需求除去台湾
-        if (j != '710000') {
-          province.push({
-            code: j,
-            name: list[k][j],
-            parentId: '0'
-          })
-        }
+        province.push({
+          code: j,
+          name: list[k][j],
+          parentId: '0'
+        })
       }
     } else {
-      // 保存省级的code
-      let provinceCodeArr = Object.keys(list['86'])
       for (var l in list[k]) {
         // 市级 ，如果一级键名为‘86’中的键名，则为市级
         if (provinceCodeArr.indexOf(k) !== -1) {
@@ -59,12 +58,33 @@ function build () {
       })
     }
   })
+
+  // 处理省份下面无市区的情况
+  for (var i in provinceCodeArr) {
+    if (listCodeArr.indexOf(provinceCodeArr[i]) === -1) {
+      city.push({
+        code: provinceCodeArr[i] + '--',
+        name: '--',
+        parentId: provinceCodeArr[i]
+      })
+      area.push({
+        code: provinceCodeArr[i] + '--' + '--',
+        name: '--',
+        parentId: provinceCodeArr[i] + '--'
+      })
+    }
+  }
   
+  let data = {
+    province: province,
+    city: city,
+    area: area
+  }
+
   let output = 
-  `export const province = ${JSON.stringify(province, null , 2)}\n` + 
-  `export const city = ${JSON.stringify(city, null , 2)}\n` +
-  `export const area = ${JSON.stringify(area, null , 2)}`
-  
+  `module.exports = ` +
+  `${JSON.stringify(data, null, 2)}`
+
   require('fs').writeFileSync(getPath('../data/china_address_pc.js'), output)
 }
 

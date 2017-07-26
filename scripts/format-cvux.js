@@ -18,13 +18,10 @@ function build () {
     // 省份
     if (k == '86') {
       for (var j in list[k]) {
-        // 业务需求除去台湾
-        if (j != '710000') {
-          rs.push({
-            name: list[k][j],
-            value: j
-          })
-        }
+        rs.push({
+          name: list[k][j],
+          value: j
+        })
       }
     } else {
       // 市级／区级
@@ -37,8 +34,10 @@ function build () {
       }
     }
   }
+
   // 将市下面不存在区的情况用‘--’代替，推入数组
   var provinceCodeArr = Object.keys(list['86'])
+  var listCodeArr = Object.keys(list)
   var cityCodeArr = []
   for (var i in list) {
     if (provinceCodeArr.indexOf(i) !== -1) {
@@ -57,7 +56,23 @@ function build () {
     }
   })
 
-  require('fs').writeFileSync(getPath('../data/china_address_cvux.json'), JSON.stringify(rs, null, 4))
+  // 处理省份下面无市区的情况
+  for (var l in provinceCodeArr) {
+    if (listCodeArr.indexOf(provinceCodeArr[l]) === -1) {
+      rs.push({
+        name: '--',
+        value: provinceCodeArr[l] + '--',
+        parent: provinceCodeArr[l]
+      })
+      rs.push({
+        name: '--',
+        code: provinceCodeArr[l] + '--' + '--',
+        parent: provinceCodeArr[l] + '--'
+      })
+    }
+  }
+
+  require('fs').writeFileSync(getPath('../data/china_address_cvux.json'), JSON.stringify(rs, null, 2))
 }
 
 build()
