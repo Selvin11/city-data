@@ -27,7 +27,7 @@
   },
   "author": "Selvin11 <528370630@qq.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"

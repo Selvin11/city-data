@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/selvin/.nvm/versions/node/v6.11.1/bin/node',
+1 verbose cli   '/Users/selvin/.nvm/versions/node/v6.11.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.8.3
+3 info using node@v6.11.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/selvin/Desktop/city-data',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/selvin/.npm/city-data/1.1.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/selvin/.npm correctMkdir not in flight; initializing
+10 info lifecycle city-data@1.1.1~prepublish: city-data@1.1.1
+11 silly lifecycle city-data@1.1.1~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/selvin/.npm/city-data/1.1.1/package.tgz',
+12 verbose tar pack   '/Users/selvin/Desktop/city-data' ]
+13 verbose tarball /Users/selvin/.npm/city-data/1.1.1/package.tgz
+14 verbose folder /Users/selvin/Desktop/city-data
+15 verbose addLocalTarball adding from inside cache /Users/selvin/.npm/city-data/1.1.1/package.tgz
+16 verbose correctMkdir /Users/selvin/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd city-data@1.1.1
+18 verbose afterAdd /Users/selvin/.npm/city-data/1.1.1/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/selvin/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/selvin/.npm/city-data/1.1.1/package/package.json written
+21 silly publish { name: 'city-data',
+21 silly publish   version: '1.1.1',
+21 silly publish   description: '中国省份城市区数据',
+21 silly publish   main: 'lib/index.js',
+21 silly publish   scripts:
+21 silly publish    { 'build-cvux': 'node scripts/format-cvux',
+21 silly publish      'build-pc': 'node scripts/format-pc',
+21 silly publish      test: 'better-npm-run test',
+21 silly publish      'test:dev': 'better-npm-run test:dev' },
+21 silly publish   betterScripts:
+21 silly publish    { test:
+21 silly publish       { command: 'node ./node_modules/karma/bin/karma start ./test/karma.conf',
+21 silly publish         env: [Object] },
+21 silly publish      'test:dev':
+21 silly publish       { command: 'node ./node_modules/karma/bin/karma start ./test/karma.conf',
+21 silly publish         env: [Object] } },
+21 silly publish   author: { name: 'Selvin11', email: '528370630@qq.com' },
+21 silly publish   license: 'MIT',
+21 silly publish   private: true,
+21 silly publish   engines: { node: '>= 4.0.0', npm: '>= 3.0.0' },
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-core': '^6.25.0',
+21 silly publish      'babel-loader': '^7.1.1',
+21 silly publish      'babel-plugin-istanbul': '^4.1.4',
+21 silly publish      'babel-preset-env': '^1.6.0',
+21 silly publish      'better-npm-run': '0.0.15',
+21 silly publish      chai: '^4.1.0',
+21 silly publish      karma: '^1.7.0',
+21 silly publish      'karma-chai': '^0.1.0',
+21 silly publish      'karma-coverage': '^1.1.1',
+21 silly publish      'karma-mocha': '^1.3.0',
+21 silly publish      'karma-phantomjs-launcher': '^1.0.4',
+21 silly publish      'karma-webpack': '^2.0.4',
+21 silly publish      mocha: '^3.4.2',
+21 silly publish      phantomjs: '^2.1.1',
+21 silly publish      webpack: '^3.4.1' },
+21 silly publish   readme: '> cityData 中国省市区三级联动数据\n\n  [![npm](https://img.shields.io/badge/npm-6.11.1-blue.svg)](https://www.npmjs.com/package/city-data)\n  [![npm](https://img.shields.io/npm/dw/city-data.svg)](https://www.npmjs.com/package/city-data)\n  [![Build Status](https://travis-ci.org/Selvin11/city-data.svg?branch=master)](https://travis-ci.org/Selvin11/city-data)\n  [![Coverage Status](https://coveralls.io/repos/github/Selvin11/city-data/badge.svg?branch=master)](https://coveralls.io/github/Selvin11/city-data?branch=master)\n\n## 使用说明\n\n1. 安装npm包：\n\n    ```bash\n    npm install city-data\n    ```\n\n2. 引入使用：可参考安装包`lib/index.js`，自定义名称，按需引入\n\n    ```javascript\n    // cvux格式文件引入\n    import { 自定义名称 as cvux } from \'city-data\'\n\n    // pc格式文件引入\n    import { province, city, area } from \'city-data\'\n    ```\n\n\n## 数据说明\n\n1. 源数据为`back_end_data.js`，我司后端使用的源数据\n\n2. 生成前端数据格式的指令：\n\n  * `npm run build-cvux`：生成前端`cvux`中使用的数据格式，`./data/china_address_cvux.json`\n\n    ```javascript\n      [\n        {\n            "name": "北京市",\n            "value": "110000"\n        },\n        ...\n      ]\n    ```\n\n  * `npm run build-pc`：生成前端`pc`中使用的数据格式，`./data/china_address_pc.js`\n\n    ```javascript\n      module.exports = {\n        province: [],\n        city: [],\n        area: []\n      }\n    ```\n\n\n## 数据来源说明\n\n* 参照`china-area-data`npm包，使用国家统计局发布的省市区文件，根据我司业务情况，对数据进行了修改\n\n\n## Github👏\n\n  [Github](https://github.com/Selvin11/city-data)\n\n\n## License\n\n  [MIT](LICENSE)',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'd29f6a3bf747178d91a75536856da8bd33dbfbe4',
+21 silly publish   _id: 'city-data@1.1.1',
+21 silly publish   _shasum: '8d5a4e6fc00933c71cfa6e23503088fb1b08dc21',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 verbose stack Error: This package has been marked as private
+23 verbose stack Remove the 'private' field from the package.json to publish it.
+23 verbose stack     at publish_ (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/lib/publish.js:100:15)
+23 verbose stack     at Array.<anonymous> (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+23 verbose stack     at LOOP (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+23 verbose stack     at LOOP (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+23 verbose stack     at chain (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+23 verbose stack     at /Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/lib/publish.js:72:5
+23 verbose stack     at RES (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+23 verbose stack     at f (/Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/once/once.js:17:25)
+23 verbose stack     at /Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/lib/cache.js:362:16
+23 verbose stack     at /Users/selvin/.nvm/versions/node/v6.11.1/lib/node_modules/npm/node_modules/write-file-atomic/index.js:29:9
+24 verbose cwd /Users/selvin/Desktop/city-data
+25 error Darwin 16.6.0
+26 error argv "/Users/selvin/.nvm/versions/node/v6.11.1/bin/node" "/Users/selvin/.nvm/versions/node/v6.11.1/bin/npm" "publish"
+27 error node v6.11.1
+28 error npm  v3.8.3
+29 error This package has been marked as private
+29 error Remove the 'private' field from the package.json to publish it.
+30 error If you need help, you may report this error at:
+30 error     <https://github.com/npm/npm/issues>
+31 verbose exit [ 1, true ]
