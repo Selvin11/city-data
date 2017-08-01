@@ -19,7 +19,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/unit/cvux.test.js'
+      'test/unit/cvux.test.js',
+      'test/unit/pc.test.js'
     ],
 
 
@@ -33,7 +34,8 @@ module.exports = function(config) {
     // 配置预处理器,ES6代码需要预处理
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/unit/cvux.test.js': ['webpack']
+      'test/unit/cvux.test.js': ['webpack'],
+      'test/unit/pc.test.js': ['webpack']
     },
 
 
