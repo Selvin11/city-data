@@ -85,12 +85,24 @@ module.exports = function(config) {
     ],
 
 
-    // karma-coverage-reporter 插件
+    // karma-coverage 插件
+    // coverageReporter: {
+    //   type : 'html',
+    //   dir : 'coverage/'
+    // },
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      dir: 'coverage',
+      reporters: [{
+        type: 'json',
+        subdir: '.',
+        file: 'coverage.json',
+      }, {
+        type: 'lcov',
+        subdir: '.'
+      }, {
+        type: 'text-summary'
+      }]
     },
-
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
