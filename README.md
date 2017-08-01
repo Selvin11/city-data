@@ -17,7 +17,7 @@
 
     ```javascript
     // cvux格式文件引入
-    import { 自定义名称 as cvux } from 'city-data'
+    import { cvux as 自定义名称 } from 'city-data'
 
     // pc格式文件引入
     import { province, city, area } from 'city-data'
