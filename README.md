@@ -2,6 +2,8 @@
 
   [![npm](https://img.shields.io/badge/npm-6.11.1-blue.svg)](https://www.npmjs.com/package/city-data)
   [![npm](https://img.shields.io/npm/dw/city-data.svg)](https://www.npmjs.com/package/city-data)
+  [![Coverage Status](https://travis-ci.org/Selvin11/city-data.svg?branch=master)]((https://www.npmjs.com/package/city-data)
+  [![Coverage Status](https://coveralls.io/repos/github/Selvin11/city-data/badge.svg?branch=master)](https://coveralls.io/github/Selvin11/city-data?branch=master)
 
 ## 使用说明
 

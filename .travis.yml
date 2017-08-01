@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 'stable'
+# before_script:
+#   - export DISPLAY=:99.0
+#   - sh -e /etc/init.d/xvfb start
+install:
+  - npm install
+  - npm install coveralls
+script:
+  - npm run test
+
+#上传覆盖率结果到coveralls，只需要安装coveralls库，然后获取lcov.info上传给Coveralls
+after_script: 'cat ./coverage/lcov.info | coveralls'
