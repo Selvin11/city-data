@@ -63,7 +63,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -80,33 +80,10 @@ module.exports = function(config) {
     plugins: [
       'karma-webpack',
       'karma-mocha',
-      'karma-coverage-istanbul-reporter',
       'karma-coverage',
-      'karma-spec-reporter',
-      // 'karma-phantomjs-launcher',
-      'karma-chrome-launcher'
+      'karma-phantomjs-launcher',
     ],
 
-     // 设定报告输出插件： spec 和 coverage-istanbul
-    // reporters: ['spec', 'coverage-istanbul'],
-
-    // coverage-istanbul 输出配置，报告文件输出于根目录下的 coverage 文件夹内
-    // coverageIstanbulReporter: {
-    //    // reports can be any that are listed here: https://github.com/istanbuljs/istanbul-reports/tree/590e6b0089f67b723a1fdf57bc7ccc080ff189d7/lib
-    //   reports: ['html', 'lcovonly', 'text-summary'],
-    //    // base output directory
-    //   dir: './coverage',
-    //    // if using webpack and pre-loaders, work around webpack breaking the source path
-    //   fixWebpackSourcePaths: true,
-    //    // Most reporters accept additional config options. You can pass these through the `report-config` option
-    //   'report-config': {
-    //     // all options available at: https://github.com/istanbuljs/istanbul-reports/blob/590e6b0089f67b723a1fdf57bc7ccc080ff189d7/lib/html/index.js#L135-L137
-    //     html: {
-    //       // outputs the report in ./coverage/html
-    //       subdir: 'html'
-    //     }
-    //   }
-    // },
 
     // karma-coverage-reporter 插件
     coverageReporter: {

@@ -1,17 +1,5 @@
 
 module.exports = {
-  // rules: [
-  //   {
-  //     test: /\.js$/,
-  //     exclude: [
-  //       path.resolve(__dirname, 'node_modules')
-  //     ],
-  //     loader: 'babel-loader',
-  //     options: {
-  //       presets: ['env']
-  //     }
-  //   }
-  // ],
   module: {
     loaders: [
       {
@@ -20,17 +8,10 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['env'],
-          plugins: ['istanbul']
+          plugins: ['istanbul'] // 解决babel编译导致代码覆盖率不全的问题
         }
       }
-    ],
-    // instrument only testing sources with Istanbul
-    // postLoaders: [{
-    //   test: /\.js$/,
-    //   exclude: /test\/|node_modules/,
-    //   loaders: ['istanbul-instrumenter']
-    // }]
+    ]
   },
   devtool: 'inline-source-map'
-  // target: 'node'
 }
