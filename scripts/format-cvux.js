@@ -66,7 +66,7 @@ function build () {
       })
       rs.push({
         name: '--',
-        code: provinceCodeArr[l] + '--' + '--',
+        value: provinceCodeArr[l] + '--' + '--',
         parent: provinceCodeArr[l] + '--'
       })
     }
